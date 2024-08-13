@@ -1,0 +1,194 @@
+/* single column layout */
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    grid-template-areas:
+    "header" /* "site-header" , "main-nav" */
+    "main" /* "page-header" , "page-content" */
+    "footer";
+}
+
+/* phone layout with 1 column */
+@media (max-width: 500px) { 
+
+    .header,
+    nav ul,
+    .menu-bar,
+    #site-header
+    #site-footer{
+        max-width: 100%;
+    }
+
+    h1{
+        font-size: 25px;
+        margin: 3px;
+    }
+
+    nav a{
+        padding: 8px;
+        font-size: 10px;
+    }
+
+    main{
+        margin-top: 170px;
+    }
+
+    /* we used nested media queries because we wanted to change the margiin-top value ONLY , and keep the rest of the declerations in the outer media querie*/
+    @media (min-width: 208px) and (max-width: 295px){ /*when the screen gets bigger than 208 pixels , we need less spacing between the header and the main parts*/
+        main{
+            margin-top: 140px;
+        }
+    }
+
+    @media (min-width: 295px){ /*when the screen gets bigger than 295 pixels , we need less spacing between the header and the main parts*/
+        main{
+            margin-top: 80px;
+        }
+    }
+
+    h2{
+        font-size: 20px;
+    }
+
+    p{
+    font-size: 15px;
+    margin-left : 20px;
+    margin-right : 20px;
+    }
+
+    #counter,
+    .counter-container,
+    .prev, .next ,h6 ,li span{
+        font-size: 15px;
+    }
+
+    #site-footer{
+        font-size : 8px;
+    }
+
+    /* categories page*/
+    .page-content-2{ /*the content of the categories page is separated in 3 rows , one for each list*/
+        gap: 5px;
+        margin-left: 20px;
+    }
+
+    /* car-rentals & home-rentals pages */
+    /* home-rentals & car-retals pages 1st image*/
+    .img-style4,
+    .img-style2{
+        max-width: 220px;
+    }
+    
+    /* we change the page content so that the arcticles appear one bellow the other in different rows*/
+    .page-content-3{ /* used in car-rentals and home-rentals page */
+        display: grid;
+        grid-template-rows: repeat(6,auto); /* 6 rows */
+        grid-template-columns: auto;
+        gap: 8px; /* Adjust the gap between grid items as needed */
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    h3{
+       font-size: 18px; 
+    }
+
+    .car p,
+    .house p {
+        margin: 5px;
+    }
+
+    /* home-rentals-housekoukaki-details page */
+    table{
+        max-width: 200px;
+        max-height: 40px;
+    }
+
+    td{
+        font-size: 15px;
+        padding: 5px;
+    }
+
+    /* slideshow */
+    .prev, .next {
+        padding: 10px;
+    }
+
+    /* about-us page */
+    /* we change the page content so that the 2 containers appear one bellow the other */
+    .page-content-5{ /* 2 rows , one for each container */
+        display: grid;
+        grid-template-rows: auto auto;
+        row-gap: 10px;
+        grid-template-columns: auto;
+    }
+
+    .img-style1 {
+        max-width: 200px;
+    }
+
+    h4{
+        font-size: 18px;
+    }
+
+    h5{
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+
+    h6{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .no-margin{ /* we want to specify the paragraph in bio-text,so that it has a different margin value that the other paragraphs*/
+        margin: 10px;
+    }
+
+    /* technical support page */
+        form{
+            max-width: 350px;
+        }
+
+        legend,
+        label,
+        input{
+            font-size: 15px;
+        }
+
+        input{
+            max-width: 150px;
+        }
+
+        textarea{
+            max-width: 300px;
+        }
+
+    /* sign-in page */
+        #sign-in-form{
+            max-width: 350px;
+        }
+
+        fieldset.p,
+        legend,
+        label.question,
+        span.question,
+        input,
+        button{
+            font-size: 15px;
+        }
+
+        input{
+            max-width: 150px;
+        }
+
+        textarea,
+        button{
+            max-width: 300px;
+        }
+
+        ::placeholder{
+            font-size: 11px;
+        }
+}

@@ -1,0 +1,586 @@
+/* font-face */
+@font-face {
+    font-family: 'myFont';
+    src: url('assets/OpenSans-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'myFontItalic'; /* same font but italics */
+    src: url('assets/OpenSans-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+  }
+
+/* body: every page is separated in 3 parts, the header, main and footer */
+body{
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    min-height: 100vh; /* minimum height of body= 100% of the viewport height */
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* header : contains the site-header and the navigation bar (main-nav & menu-bar)*/
+header{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+    "site-header"
+    "main-nav";
+    align-content: start;
+
+    position: fixed; /* we want the header (site-header & main-nav) to stay at the top of the pafe even when the user scrolls */
+    width: 100%;
+    z-index: 2; /* ensure the header has a higher z-index than the slideshow , so that when the user scrolls , the slideshow is not shown on top of the header*/
+}
+
+#site-header{
+    grid-area: 0,0,1,1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%; /* ensures the header spans the full width of the viewport */
+    padding: 0;
+    margin-top: 0;
+    background: linear-gradient(to right, rgb(1, 154, 196), rgb(0, 59, 75)); 
+}
+
+/*specify text color for h1 in site-header*/
+h1{
+    color: rgb(18, 18, 18); /*specify text color for h1 in site-header*/
+    font-size: 40pt; 
+    text-align: center;
+    font-family: 'myFont', sans-serif;
+    margin: 10px;
+}
+
+#main-nav {
+    grid-area: 1,1,2,2;
+    display: grid;
+}
+
+.menu-bar{
+    display: flex;
+    justify-content:start;
+    flex-wrap: wrap;
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* format the ul , li , to create a horizontal navigation bar (menu) */
+#main-nav ul{
+    padding: 0;
+    margin: 0;
+  }
+  
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    overflow: auto;
+    background-color:rgb(0, 59, 75);
+  }
+  
+  nav li {
+    float: left;
+  }
+  
+  nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* change the link color to #111 (black) on hover */
+  nav a:hover {
+    background-color: #111;
+  }
+  
+  /* let the user know which page he is on*/
+  .active {
+    background-color: #04AA6D;
+  }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* main: contains the page-header and the page content , which is defined differently depending on the page*/
+main{
+    display: grid;
+    grid-template-rows: auto auto; /* Two rows ,one for the page header and one for the page content */
+    margin: 0;
+    padding: 0;
+    margin-top: 110px; /* we need some space between the page content and the site-header */
+}
+
+.page-header{
+    display: flex;
+    flex-direction: column; /* we need column for the pages that have pictures in their headers */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    text-align: center;
+}
+
+h2{
+    color: rgb(0, 96, 123);
+    font-size: 35pt;
+    text-align: center;
+    font-family: 'myFont', sans-serif;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* footer*/
+footer {
+    display: grid;
+    align-self: end;
+    text-align: center;
+    grid-area: footer;
+}
+
+footer.p{
+    display: flex;
+    flex-wrap: wrap;
+    grid-area: footer;
+    align-self: center; 
+}
+
+#site-footer {
+    bottom: 0;
+    width: 100%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 12pt;
+  }
+  
+  /*specify text color for p in site-footer*/
+  #site-footer p {
+    color: inherit; /* inherit the color from the parent (#site-footer) */
+    font-size: inherit;
+  }
+
+/*-------------------------------------------------------------------------------------------------*/
+/* index page*/
+.page-content-1{ /* used in index page*/
+    display: grid;
+    grid-template-rows: auto 1fr; /* thus page content has two rows , one for the index-images and one for the site-description */
+    justify-content: center;
+}
+
+.index-images{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 20px;
+}
+
+.site-discription{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img-style3{
+    display: flex;
+    flex-wrap: wrap;
+
+    width : 20%;
+    height: auto;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* categories page*/
+.page-content-2{ /*the content of the categories page is separated in 3 rows , one for each list*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-left: 200px;
+}
+
+.list-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;  
+    margin: 0px;  
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* car-rentals & home-rentals page page: theese two pages have the same layout.*/
+
+.page-content-3{ /* used in car-rentals and home-rentals page */
+    display: grid;
+    grid-template-rows: repeat(2,auto); /* 2 rows */
+    grid-template-columns: repeat(3,1fr); /* 3 columns for each row */
+    gap: 20px; /* Adjust the gap between grid items as needed */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.car {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+
+    background-color: #e4e8e7;
+}
+
+.car p,
+.house p {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+/* home-rentals & car-retals pages 1st image*/
+.img-style4{
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+
+    width: 600px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+/* home-rentals & car-retals pages */
+.img-style2{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-wrap: wrap;
+
+    width : 400px;
+    height: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* home-rentals & car-retals pages , text bubble */
+.img-style5{
+    display: flex;
+    align-self: flex-end;
+    flex-wrap: wrap;
+
+    width: 150px;
+    height: auto;
+    margin-left: auto;
+}
+
+.house {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+
+    background-color: #e4e8e7;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* home-rentals-housekoukaki-details page : the content of this page is separated in 4 rows.
+    the 1st row contains the slideshow and the views counter , the 2nds row contains the basic information,
+    the 3rd row contains the description and the 4th row contains the features table.
+    in the 3rd row , the extra-info is a displayed with grid , and is separated in two columns,
+    one for the sleeping arrangements and one for the amenities 
+*/
+.page-content-4{
+    display: grid;
+    grid-template-rows: auto auto auto auto ;
+}
+
+.slideshow-container,
+.basic-info,
+.description,
+.features-table {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+table {
+    font-family: 'myFont', sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+    width: 500px;
+    height: 80px;
+}
+  
+  /* format table data sets appearance */
+td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    font-size: 20px;
+} 
+
+.extra-info{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row; /*we want the sleping arrangements and amenities to appear side by side*/
+}
+
+.sleeping-arrangements,
+.amenities {
+    flex: 1;
+    flex-wrap: wrap;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* about-us page : the page content is separated in two columns , one for each container. 
+    each container is then separated in 3 rows , one for the bio-name (name and avater picture), one for the bio-text, and one for the contact-info.
+*/
+
+.page-content-5{ /* 2 rows , one for each container */
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.container { /* one container for each persons bios */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; /*each container has 3 rows , one for the bio-name , one for the bio-text and one for the contact-info*/
+    gap: 0px;
+
+    background-color: #e4e8e7;
+    margin-left: 20px; 
+    margin-right: 20px;
+}
+
+.img-style1 {
+    display: flex;
+    align-self: auto;
+    flex-wrap: wrap;
+
+    width: 300px;
+    height: auto; 
+    float: left;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.bio-name{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+    align-items: center;    
+}
+
+.bio-text{
+    display: flex;
+    flex-wrap: wrap;   
+    flex-direction: column; 
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+    align-self: center;
+}
+
+.contact-list{
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+
+.no-margin{ /* we want to specify the paragraph in bio-text,so that it has a different margin value that the other paragraphs*/
+    text-align: left;
+    margin: 20px;
+  }
+
+/* about-us page , name headers */
+h4{
+    color: rgb(0, 96, 123);
+    font-size: 25pt;
+    text-align: left;
+    font-family: 'myFont', sans-serif;
+  }
+  
+  /* about-us page */
+  h5{
+    color: rgb(0, 96, 123);
+    font-size: 20pt;
+    text-align: left;
+    margin-bottom: 10pt;
+    font-family: 'myFont', sans-serif;
+  }
+  
+  /* used in about-us  home-rentals-housekoukaki-details pages */
+  h6{
+    color: rgb(0, 96, 123);
+    font-size: 20pt;
+    text-align: center;
+    margin-bottom: 10pt;
+    font-family: 'myFont', sans-serif;
+  }
+  
+/*-------------------------------------------------------------------------------------------------*/
+/* technical support page : the page has one row for the support paragraph section and one for the form*/
+.page-content-6{
+    display: grid;
+    grid-template-rows: auto 1fr;
+    justify-content: center;
+    justify-items: center;
+}
+
+.support-text{
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    flex-direction: column; /* we need just one column, for the text*/   
+}
+
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* we need just one column, for the form */
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* sign-in page*/
+.page-content-7{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "form";
+    justify-content: center;
+    justify-items: center;
+}   
+
+#sign-in-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    row-gap: 15px;
+}
+
+fieldset {
+    border: 2px solid rgb(0, 96, 123);
+}
+
+fieldset.p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+legend {
+    font-weight: bold;
+}
+
+label.question {
+    width: 200px;
+    float: left;
+    text-align: left;
+    font-weight: bold;
+}
+
+span.question {
+    float: left;
+    text-align: left;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select,
+button {
+    border: 1px solid #000;
+    padding: 3px;
+}
+
+#errors {
+    color: red;
+    font-weight: bold;
+    font-size: larger;
+    font-family: 'myFontItalic', sans-serif ; 
+}
+
+#success-message{
+    color: green;
+    font-weight: bold;
+    font-size: larger;
+    font-family: 'myFontItalic', sans-serif ;   
+}
+
+#submit-button{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(0, 96, 123);
+    color: #ffffff;
+}
+
+::placeholder{
+    font-size: 15px;
+}
+
+/*-------------------------------------------------------------------------------------------------*/
+/* img */
+img{
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+h3{
+    color: rgb(0, 96, 123);
+    font-size: 25pt;
+    text-align: center;
+    font-family: 'myFont', sans-serif;
+}
+  
+.underlined-text {
+    text-decoration: underline;
+}
+
+/* lists */
+ul {
+    list-style-type: none; /* remove default bullets from lists*/
+}
+  
+li a:hover {
+    background-color: #111;; /* change the link color on hover*/
+    color: white;
+}
+  
+.list-container {
+    list-style-type: none;
+}
+
+/* paragraphs */
+p{
+    color: black;
+    text-align: center;
+    font-family: 'myFont', sans-serif;
+    font-size: 15pt;
+    margin-left : 200px;
+    margin-right : 200px;
+  }
+

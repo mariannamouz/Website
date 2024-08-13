@@ -1,0 +1,188 @@
+/*-------------------------------------------------------------------------------------------------*/
+/* desktop layout with 3 columns */
+
+@media (min-width: 900px) { /* 900px -  */
+    
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(300px, 1fr));
+        grid-template-rows: auto;
+        grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+
+    .header,
+    nav ul,
+    .menu-bar,
+    #site-header
+    #site-footer{
+        max-width: 100%;
+    }
+
+    h1{
+        font-size: 40px;
+        margin: 10px;
+    }
+
+    nav a{
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    main{
+        margin-top: 80px;
+        grid-area: main;
+        grid-column: span 3; /* main spans all 3 columns */
+    }
+
+    /* we used nested media queries because we wanted to change the margiin-top value ONLY , and keep the rest of the declerations in the outer media querie*/
+    @media (min-width: 900px) and (max-width: 999px){ /*when the screen gets bigger than 900px pixels , we need more spacing between the header and the main parts*/
+        main{
+            margin-top: 120px;
+        }
+    }
+
+    h2{
+        font-size: 35px;
+    }
+
+    p{
+    font-size: 20px;
+    margin-left : 20px;
+    margin-right : 20px;
+    }
+
+    #counter,
+    .counter-container,
+    .prev, .next ,h6 ,li span{
+        font-size: 20px;
+    }
+
+    #site-footer{
+        font-size : 12px;
+        grid-area: footer;
+        grid-column: span 3;
+    }
+
+    /* categories page*/
+        .page-content-2{ /*the content of the categories page is separated in 3 rows , one for each list*/
+            gap: 5px;
+            margin-left: 80px;
+        }
+
+        /* we used nested media queries because we wanted to change the margin-left value ONLY , and keep the rest of the declerations in the outer media querie*/
+        @media (min-width: 650px) { /*when the screen gets bigger than 650px pixels , we need the page content to move more to the left*/
+            .page-content-2{
+                margin-left: 40px;
+            }
+        }    
+
+    /* car-rentals & home-rentals pages */
+        /* home-rentals & car-retals pages 1st image*/
+        .img-style4,
+        .img-style2{
+            max-width: 450px;
+        }
+        
+        .page-content-3{ /* used in car-rentals and home-rentals page */
+            gap: 20px; /* Adjust the gap between grid items as needed */
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+
+        h3{
+        font-size: 25px; 
+        }
+
+        .car p,
+        .house p {
+            margin: 10px;
+        }
+
+    /* home-rentals-housekoukaki-details page */
+        table{
+            max-width: 550px;
+            max-height: 550px;
+        }
+
+        td{
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        /* slideshow */
+        .prev, .next {
+            padding: 15px;
+        }
+
+    /* about-us page */
+        .img-style1 {
+            max-width: 400px;
+        }
+
+        h4{
+            font-size: 25px;
+        }
+
+        h5{
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+
+        h6{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .no-margin{ /* we want to specify the paragraph in bio-text,so that it has a different margin value that the other paragraphs*/
+            margin: 20px;
+        }
+
+    /* technical support page */
+        form{
+            max-width: 800px;
+        }
+
+        legend,
+        label,
+        input{
+            font-size: 20px;
+        }
+
+        input{
+            max-width: 250px;
+        }
+
+        textarea{
+            max-width: 800px;
+        }
+
+    /* sign-in page */
+    #sign-in-form{
+        max-width: 800px;
+    }
+
+    fieldset.p,
+    legend,
+    label.question,
+    span.question,
+    input,
+    button{
+        font-size: 20px;
+    }
+
+    input{
+        max-width: 250px;
+    }
+
+    textarea,
+    button{
+        max-width: 800px;
+    }
+
+    ::placeholder{
+        font-size: 15px;
+    }
+}

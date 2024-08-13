@@ -1,0 +1,201 @@
+/*-------------------------------------------------------------------------------------------------*/
+/* tablet layout with 2 columns */
+
+@media (min-width: 500px) and (max-width: 900px) { /* 500px - 900px */
+    
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        grid-template-rows: auto;
+        grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    }
+
+    .header,
+    nav ul,
+    .menu-bar,
+    #site-header
+    #site-footer{
+        max-width: 100%;
+    }
+
+    h1{
+        font-size: 35px;
+        margin: 5px;
+    }
+
+    nav a{
+        padding: 8px;
+        font-size: 15px;
+    }
+
+    main{
+        margin-top: 80px;
+        grid-area: main;
+        grid-column: span 2; /* main spans both columns */
+    }
+
+    /* we used nested media queries because we wanted to change the margiin-top value ONLY , and keep the rest of the declerations in the outer media querie*/
+    /* the pixels where the margin-top changes are different in exercise 5 , because now we added sign-in to our navigation bar so it is bigger*/
+    @media (min-width: 757px) { /*when the screen gets bigger than 698px pixels , we need less spacing between the header and the main parts*/
+        main{
+            margin-top: 50px;
+        }
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    p{
+    font-size: 18px;
+    margin-left : 20px;
+    margin-right : 20px;
+    }
+
+    #counter,
+    .counter-container,
+    .prev, .next ,h6 ,li span{
+        font-size: 18px;
+    }
+
+    #site-footer{
+        font-size : 12px;
+        grid-area: footer;
+        grid-column: span 2;
+    }
+
+    /* categories page*/
+        .page-content-2{ /*the content of the categories page is separated in 3 rows , one for each list*/
+            gap: 5px;
+            margin-left: 20px;
+        }
+
+        /* we used nested media queries because we wanted to change the margin-left value ONLY , and keep the rest of the declerations in the outer media querie*/
+        @media (min-width: 650px) { /*when the screen gets bigger than 650px pixels , we need the page content to move more to the left*/
+            .page-content-2{
+                margin-left: 40px;
+            }
+        }    
+
+    /* car-rentals & home-rentals pages */
+        /* home-rentals & car-retals pages 1st image*/
+        .img-style4,
+        .img-style2{
+            max-width: 450px;
+        }
+        
+        /* we change the page content so that the arcticles appear on 3 rows , with each row having 3 columns*/
+        .page-content-3{ /* used in car-rentals and home-rentals page */
+            display: grid;
+            grid-template-rows: repeat(3,auto); /* 3 rows */
+            grid-template-columns:repeat(2,auto); /* 2 columns */
+            gap: 10px; /* Adjust the gap between grid items as needed */
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+
+        h3{
+        font-size: 25px; 
+        }
+
+        .car p,
+        .house p {
+            margin: 8px;
+        }
+
+    /* home-rentals-housekoukaki-details page */
+        table{
+            max-width: 450px;
+            max-height: 40px;
+        }
+
+        td{
+            font-size: 18px;
+            padding: 5px;
+        }
+
+        /* slideshow */
+        .prev, .next {
+            padding: 10px;
+        }
+
+    /* about-us page */
+        /* we change the page content so that the 2 containers appear one bellow the other */
+        .page-content-5{ /* 2 rows , one for each container */
+            display: grid;
+            grid-template-rows: auto auto;
+            row-gap: 10px;
+            grid-template-columns: auto;
+        }
+
+        .img-style1 {
+            max-width: 400px;
+        }
+
+        h4{
+            font-size: 25px;
+        }
+
+        h5{
+            font-size: 20px;
+            margin-bottom: 0px;
+        }
+
+        h6{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .no-margin{ /* we want to specify the paragraph in bio-text,so that it has a different margin value that the other paragraphs*/
+            margin: 15px;
+        }
+
+    /* technical support page */
+        form{
+            max-width: 500px;
+        }
+
+        legend,
+        label,
+        input{
+            font-size: 18px;
+        }
+
+        input{
+            max-width: 200px;
+        }
+
+        textarea{
+            max-width: 500px;
+        }
+
+    /* sign-in page */
+        #sign-in-form{
+            max-width: 500px;
+        }
+
+        fieldset.p,
+        legend,
+        label.question,
+        span.question,
+        input,
+        button{
+            font-size: 18px;
+        }
+
+        input{
+            max-width: 200px;
+        }
+
+        textarea,
+        button{
+            max-width: 500px;
+        }
+
+        ::placeholder{
+            font-size: 15px;
+        }
+}

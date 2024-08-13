@@ -1,0 +1,113 @@
+
+/*--------------------------------------------------------------------------------------------*/
+/* apartment add page SLIDESHOW */
+
+/* views counter : shows how many people have visited the page */
+#counter {
+  font-size: 20px;
+  text-align: center;
+}
+
+.counter-container {
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 15pt;
+  margin-left : 30px;
+  margin-right : 30px; 
+}
+
+/* SLIDESHOW */
+* {box-sizing:border-box}
+
+/* slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  z-index: 1; /* ensure the slideshow has a lower z-index than the header , so that when the user scrolls , the slideshow is not shown on top of the header*/
+}
+
+/* the 1st image is shown first by default */
+.mySlides:first-child {
+  display: block;
+}
+
+/* the rest of the images are hidden , 
+  only the first image will appear , 
+  if the user wants to see the rest of the pictures he can press the next-previous buttons , 
+  or one of the dots
+*/
+.mySlides:not(:first-child) {
+  display: none;
+}
+
+/* next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* place the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* place the "previous button" to the right */
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* black background color on hover*/
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* number text (1/10 etc) of images*/
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+

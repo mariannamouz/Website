@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="authors" content="Maria Kontaratou, Marianna Mouzouraki">
+        <meta name="description" content="classifieds search platform">
+        <meta name="keywords" content="university,webdev,aueb">
+        <link rel="stylesheet" type="text/css" href="content_formatting.css"> 
+        <link rel="stylesheet" type="text/css" href="phone-screen.css">
+        <link rel="stylesheet" type="text/css" href="tablet-screen.css">
+        <link rel="stylesheet" type="text/css" href="desktop-screen.css">
+        <title>Project 1</title>
+    </head>
+
+    <body> 
+        <div class="wrapper">
+            <header>
+                <div id="site-header">
+                    <h1>Classifieds Search Platform</h1>
+                </div>
+                <!-- menu -->
+                <nav id="main-nav">
+                    <ul class="menu-bar">
+                        <li><a href="index.html">Home Page</a></li>
+                        <li><a href="categories.html">Rental Categories</a></li>
+                        <li><a href="home-rentals.html">Home Rentals</a></li>
+                        <li><a href="home-rentals-housekoukaki-details.html">Apartment Ad</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="form.html">Technical Support</a></li>
+                        <li><a href="sign-in.html">Sign In</a></li>
+                    </ul>
+                </nav>
+            </header>
+        
+            <main>
+
+                <section class="page-header">
+                    <h2>Technical Customer Support</h2>
+                </section>
+
+                <section class = "page-content-6">
+                    <section class="support-text">
+                        <p> At our certified search platform, we are dedicated to providing exceptional assistance to our valued users.
+                            Your satisfaction is our priority, and we understand that sometimes you may encounter questions or challenges. 
+                            To streamline the support process, we have created this easy-to-use form for you to submit your inquiries or requests. 
+                            Simply fill out the form below, and our support team will promptly attend to your needs. 
+                            We look forward to assisting you! </p>
+                    </section>
+
+                    <form>
+                        <fieldset>
+                            <legend>Personal Information</legend>
+                            <div class="field">
+                                <label for="firstname">First Name</label>
+                                <input name="firstname" id="firstname" placeholder="First Name" required>
+                            </div>
+                            <div class="field">
+                                <label for="surname">Surname</label>
+                                <input name="surname" id="surname" placeholder="Surname" required>
+                            </div>
+                            <div class="field">
+                                <label for="telephone">Telephone number</label>
+                                <input type="tel" name="telephone_number" id="telephone" placeholder="Telephone Number" pattern="[0-9]{10}">
+                            </div>
+                            <div class="field">
+                                <label for="code">Listing Code</label>
+                                <input type="lcode" name="listing_code" id="code" placeholder="Listing Code" pattern="[0-9]{10}">
+                            </div>
+
+                            <label for="message">Message</label> <br>
+                            <textarea name="message_field" id="message" rows=5 cols=100></textarea>
+                            <br>
+                            <input type="submit" value="Submit">
+                        </fieldset>   
+                    </form>
+                </section>
+            </main>
+
+            <!-- footer -->
+            <footer id="site-footer">
+                <p>Copyright @2023-2024 Maria Kontaratou Maria-Ioanna Mouzouraki</p>
+            </footer>
+        </div>
+    </body>
+</html>

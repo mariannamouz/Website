@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="authors" content="Maria Kontaratou, Marianna Mouzouraki">
+        <meta name="description" content="a classifieds search platform">
+        <meta name="keywords" content="university,webdev,aueb">
+        <link rel="stylesheet" type="text/css" href="content_formatting.css">
+        <link rel="stylesheet" type="text/css" href="phone-screen.css">
+        <link rel="stylesheet" type="text/css" href="tablet-screen.css">
+        <link rel="stylesheet" type="text/css" href="desktop-screen.css">
+        
+        <title>Project 1</title>
+    </head>
+    
+    <body>
+        <div class="wrapper">
+            <header>
+                <div id="site-header">
+                    <h1>Classifieds Search Platform</h1>
+                </div>
+                <!-- menu -->
+                <nav id="main-nav">
+                    <ul class="menu-bar">
+                        <li><a href="index.html">Home Page</a></li>
+                        <li><a href="categories.html">Rental Categories</a></li>
+                        <li><a href="home-rentals.html">Home Rentals</a></li>
+                        <li><a href="home-rentals-housekoukaki-details.html">Apartment Ad</a></li>
+                        <li><a href="car-rentals.html">Car Rentals</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="form.html">Technical Support</a></li>
+                        <li><a href="sign-in.html">Sign In</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <!-- main part of page -->
+            <main>
+
+                <section id="page-header">
+                    <h2>We have everything you are looking for!</h2>
+                </section>
+
+                <section class = "page-content-6">
+
+                    <div id="error-status"></div>
+            
+                    <form  id="sign-in-form" name="sign-in-form" method="post" onsubmit="return validation()" action="/register-user">
+                        <output id="errors"></output>
+                        <!-- personal information -->
+                        <fieldset>
+                            <legend>Personal Information</legend>
+                            <p>
+                                <label class="question" for="name">
+                                    Name :</label>
+                                <input type="text" id="name" name="name" placeholder="full name" size="50" required autofocus>
+                            </p>
+                            <p>
+                                <label class="question" for="age">
+                                    Age :</label>
+                                <input type="number" id="age" name="age" placeholder="age"  min="16" max="100" step="1" required>
+                            </p>
+                            <!-- display error message for age -->
+                            <span id="age-error" class="error-message"></span>
+
+                            <p>
+                                <label class="question" for="date">
+                                    Date of Birth :</label>
+                                <input type="date" id="date" name="date" required>
+                            </p>
+                            <p>
+                                <!-- autocomplete 1/2 -->
+                                <label class="question" for="email">
+                                    email  :</label>
+                                <input type="email" id="email" name="email" placeholder="Use a real one!" size="50" autocomplete="on" list="emails" required>
+                            </p>
+                            <p>
+                                <label class="question" for="address">
+                                    Address :</label>
+                                <input type="text" id="address" name="address" placeholder="address" size="50" required autofocus>
+                            </p>
+                            <p>
+                                <!-- autocomplete 2/2 -->
+                                <label class="question" for="phone">
+                                    Phone Number :</label>
+                                <input type="text" id="phone" name="phone" placeholder="phone number" size="13" autocomplete="on" list="phone-numbers" required autofocus>
+                            </p>
+                        </fieldset>
+                        
+                        <!-- sign in -->
+                        <fieldset>
+                            <legend>Sign In</legend>
+                            <p>
+                                <label class="question" for="username">
+                                    Username :</label>
+                                <input type="text" id="username" name="username" placeholder="Choose a username" size="50" required autofocus>
+                            </p>
+                            <p>
+                                <label class="question" for="password">
+                                    Password :</label>
+                                <input type="password" id="password" name="password" placeholder="at least 8 numbers/letters" minlength="8" required>
+                            </p>
+                            <!-- display error message for password -->
+                            <span id="password-error" class="error-message"></span>
+
+                            <p>
+                                <label class="question" for="check-password">
+                                    Clarify Password :</label>
+                                <input type="password" id="check-password" name="check-password" placeholder="Clarify your password" minlength="8" required>                               
+                            </p>
+                            <!-- display error message for confirm password -->
+                            <span id="confirm-password-error" class="error-message"></span>
+                            
+                            <p>
+                                <span class="question">Communicate with us via:</span><br>
+                
+                                <input type="checkbox" id="sms" name="communication" value="SMS">
+                                <label for="sms">SMS</label><br>
+                                
+                                <input type="checkbox" id="email-communication" name="communication" value="email" checked> <!-- the email is already checked -->
+                                <label for="email-communication">email</label><br>
+                                    
+                                <input type="checkbox" id="viber" name="communication" value="Viber">
+                                <label for="viber">Viber</label><br>
+                                    
+                                <input type="checkbox" id="WhatsApp" name="communication" value="WhatsApp">
+                                <label for="WhatsApp">WhatsApp</label>
+                            </p>
+                        </fieldset>
+                
+                        <!-- questionnaire -->
+                        <fieldset>
+                            <legend>Questionnaire</legend>
+                            <!-- 1st question -->
+                            <p>
+                                <label for="east-side">
+                                    <span class="question">
+                                        Which area interests attracts  you the most :
+                                    </span>
+                                </label><br>
+
+                                <input type="text" id="east-side" name="east-side" placeholder="East side" list="sides" size="50">
+                            </p>
+
+                            <!-- 2nd question -->
+                            <p>
+                                <label for="internship">
+                                    <span class="question">
+                                        What kind of employment positions are you most interested in:
+                                    </span>
+                                </label><br>
+
+                                <input type="text" id="internship" name="internship" placeholder="Internship" list="jobs" size="50">
+                            </p>
+                            <!-- 3rd question -->
+                            <p>
+                                <label for="house-rents">
+                                    <span class="question">
+                                        Are you more interested in houses rentals or sales :
+                                    </span>
+                                </label><br>
+
+                                <input type="text" id="house-rents" name="house-rents" placeholder="House rentals" list="houses" size="50">
+                            </p>
+                            <!-- 4th question -->
+                            <p>
+                                <label for="car-rents">
+                                    <span class="question">
+                                        Are you more interested in car rentals or sales :
+                                    </span>
+                                </label><br>
+
+                                <input type="text" id="car-rents" name="car-rents" placeholder="Car rentals" list="cars" size="50">
+                            </p>
+                            <!-- 5th question -->
+                            <p>
+                                <label for="choose_scale">
+                                    <span class="question">Please rate our site on a scale of 1 (poor) to 10 (excellent):</span>
+                                </label>
+                                <input type="number" id="choose_scale" name="choose_scale" min="1" max="10" step="1" value="5">
+                            </p>
+                        </fieldset>
+
+                        <!-- if submission was successfull display message -->
+                        <div id="success-message" style="display: none;">Submission was successful!</div>
+
+                        <script> 
+                            function validation(){
+                                var age = checkAge();
+                                var password_match = passwordsMatch();
+                                var password_length = checkPasswordLength();
+                                if (age && password_match && password_length) {
+                                    // Display the success message
+                                    document.getElementById('success-message').style.display = 'block';
+                                    return false;
+                                } else {
+                                    // Hide the success message in case it was displayed before
+                                    document.getElementById('success-message').style.display = 'none';
+                                    // Prevent the default form submission
+                                    return false;
+                                }
+                            }
+                        </script>
+
+                        <!-- buttons -->
+                        <div id="buttons">
+                            <input type="submit" id="submit-button" value="Click Here to Submit">
+                        </div>
+
+                    </form>
+            
+                    <datalist id="emails">
+                        <option>@gmail.com</option>
+                        <option>@yahoo.com</option>
+                        <option>@hotmail.com</option>
+                    </datalist>
+
+                    <datalist id="phone-numbers">
+                        <option>210</option>
+                        <option>2422</option>
+                        <option>69</option>
+                    </datalist>
+
+                    <datalist id="sides">
+                        <option value="East side"></option>
+                        <option value="West side"></option>
+                        <option value="North side"></option>
+                        <option value="South side"></option>
+                    </datalist>
+                                
+                    <datalist id="jobs">
+                        <option value="Internship"></option>
+                        <option value="Part-time jobs"></option>
+                        <option value="Full-time jobs"></option>
+                        <option value="Remote employment"></option>
+                    </datalist>
+                                
+                    <datalist id="houses">
+                        <option value="House rentals"></option>
+                        <option value="House sales"></option>
+                    </datalist>
+                                
+                    <datalist id="cars">
+                        <option value="Car rentals"></option>
+                        <option value="Car sales"></option>
+                    </datalist>
+
+                </section>
+
+            </main>
+            
+            <!-- footer -->
+            <footer id="site-footer">
+                <p>Copyright @2023-2024 Maria Kontaratou Maria-Ioanna Mouzouraki</p>
+            </footer>
+        </div>
+        <script src="error-handling.js"></script> 
+    </body>
+
+</html>
